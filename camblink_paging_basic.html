@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /********************************************
+    section_5
+    같이 걷는 용기
+
+    ********************************************/
+
+      .plan107681 .section_5 {
+        width: 100%;
+        position: relative;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        background: url("//img.lfmall.co.kr/file/WAS/display/Planning/107681/pc/part2_top_bg.png")
+          no-repeat center/contain;
+        aspect-ratio: 1920 / 980;
+        z-index: 1;
+      }
+
+      .plan107681 .section_5 .top_txt {
+        display: flex;
+        justify-content: space-between;
+        width: 88%;
+        margin: 0 auto;
+        margin-bottom: 0;
+        position: relative;
+        padding-top: 40px;
+        border-bottom: 1px solid #000;
+      }
+
+      .plan107681 .section_5 .part2_swp_1 {
+        position: absolute;
+        top: 6%;
+        right: 19%;
+        width: 35%;
+      }
+      .plan107681 .section_5 .top_txt .stit {
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 400;
+      }
+
+      /************************ 겹쳐진 img --- blink ************************/
+      .plan107681 .section_5 .part2_swp_1 .stack {
+        position: relative;
+        width: 90%;
+        aspect-ratio: 670/900;
+        margin: 0 auto;
+        /* overflow: hidden; */
+      }
+      .plan107681 .section_5 .part2_swp_1 .stack img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0; /* 숨김 */
+        /* animation: reveal 8s infinite; */
+        animation-name: reveal_img3;
+        animation-duration: 6s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+        will-change: opacity;
+      }
+      .section_5 .part2_swp_1 .stack img:nth-child(1) {
+        animation-delay: 0s;
+        z-index: 1;
+      }
+      .section_5 .part2_swp_1 .stack img:nth-child(2) {
+        animation-delay: 2s;
+        z-index: 2;
+      }
+      .section_5 .part2_swp_1 .stack img:nth-child(3) {
+        animation-delay: 4s;
+        z-index: 3;
+      }
+
+      @keyframes reveal_img3 {
+        0% {
+          opacity: 0;
+        }
+        2% {
+          opacity: 1;
+        }
+        4% {
+          opacity: 0;
+        }
+        6% {
+          opacity: 1;
+        }
+        30% {
+          opacity: 1;
+        }
+        33% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .plan107681 .section_5 .part2_swp_1 .top_eff {
+        width: 35%;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        z-index: 5;
+      }
+      .plan107681 .section_5 .part2_swp_1 .top_eff_cam {
+        width: 22%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+      }
+
+      .plan107681 .section_5 .cont_wrap {
+        position: absolute;
+        top: 26%;
+        left: 18%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .plan107681 .section_5 .cont_wrap .qna_box .itemdec {
+        padding-left: 0px;
+        padding-top: 40px;
+        text-align: center;
+      }
+
+      /* 포스트잇*/
+      .plan107681 .section_5 .label_box {
+        width: 58%;
+        margin-bottom: 150px;
+      }
+      .plan107681 .section_5 .main_title {
+        width: 70%;
+      }
+      .plan107681 .section_5 .testTxt img {
+        /* height: 50px; */
+        /* width: auto; */
+      }
+
+      .plan107681 .section_5 .stit_btm {
+        font-size: 20px;
+        line-height: 30px;
+        color: #fff;
+        text-align: center !important;
+        position: absolute;
+        bottom: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* ====== 커스텀 페이지네이션 ====== */
+      .plan107681 .section_5 .part2_swp_1 .my-paging,
+      .plan107681 .section_8 .part3_swp_1 .my-paging {
+        position: absolute;
+        left: 50%;
+        bottom: 30px;
+        z-index: 3;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        font-size: 14px;
+        line-height: 1;
+        user-select: none;
+        pointer-events: auto;
+      }
+      .my-paging .num {
+        opacity: 0.6;
+        cursor: default; /* 클릭 기능 미제공 */
+        position: relative;
+        transition: opacity 0.25s ease;
+      }
+      .my-paging .num.page-active {
+        opacity: 1;
+      }
+
+      /* 가운데 점 */
+      .my-paging .dot {
+        opacity: 1;
+      }
+
+      /* 삼각형 인디케이터 */
+      /* .my-paging .triangle {
+        position: absolute;
+        top: 100%;
+        left: 0; 
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid #fff;
+        transition: left 0.35s ease; 
+      } */
+
+      .my-paging .triangle {
+position: absolute;
+top: 100%;
+left: 0; /* JS에서 중앙 좌표로 이동 */
+transform: translateX(-50%);
+width: 14px; 
+height: 10px; 
+background: #fff;
+/* 위 꼭짓점이 살짝 둔각 느낌, 밑변은 넓게 */
+clip-path: polygon(50% 0, 72% 100%, 28% 100%);
+transition: left 0.35s ease;
+pointer-events: none;
+}
+      /* 안전한 포지셔닝을 위해 컨테이너 자체에도 상대 위치 부여 */
+      .my-paging {
+        position: absolute;
+      }
+
+      /*   // section_5  --------------------- end */
+
+      /********************************************
+    section_8
+    패션이라는 연결고리
+
+    ********************************************/
+
+      .plan107681 .section_8 {
+        width: 100%;
+        position: relative;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        background: url("//img.lfmall.co.kr/file/WAS/display/Planning/107681/pc/part3_top_bg.png")
+          no-repeat center/contain;
+        aspect-ratio: 1920 / 980;
+        z-index: 1;
+      }
+
+      .plan107681 .section_8 .top_txt {
+        display: flex;
+        justify-content: space-between;
+        width: 88%;
+        margin: 0 auto;
+        margin-bottom: 0;
+        position: relative;
+        padding-top: 40px;
+        border-bottom: 1px solid #000;
+      }
+
+      .plan107681 .section_8 .part3_swp_1 {
+        position: absolute;
+        top: 6%;
+        right: 19%;
+        width: 35%;
+      }
+      .plan107681 .section_8 .top_txt .stit {
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 400;
+      }
+
+      /************************ 겹쳐진 img --- blink ************************/
+      .plan107681 .section_8 .part3_swp_1 .stack {
+        position: relative;
+        width: 90%;
+        aspect-ratio: 670/900;
+        margin: 0 auto;
+        /* overflow: hidden; */
+      }
+      .plan107681 .section_8 .part3_swp_1 .stack img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0; /* 숨김 */
+        /* animation: reveal 8s infinite; */
+        animation-name: reveal_img2;
+        animation-duration: 4s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+        will-change: opacity;
+      }
+      .section_8 .part3_swp_1 .stack img:nth-child(1) {
+        animation-delay: 0s;
+        z-index: 1;
+      }
+      .section_8 .part3_swp_1 .stack img:nth-child(2) {
+        animation-delay: 2s;
+        z-index: 2;
+      }
+
+      /* 2장 전용 키프레임 */
+      @keyframes reveal_img2 {
+        0% {
+          opacity: 0;
+        }
+        2% {
+          opacity: 1;
+        }
+        4% {
+          opacity: 0;
+        }
+        6% {
+          opacity: 1;
+        }
+        47% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .plan107681 .section_8 .part3_swp_1 .top_eff {
+        width: 35%;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        z-index: 5;
+      }
+      .plan107681 .section_8 .part3_swp_1 .top_eff_cam {
+        width: 22%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+      }
+
+      .plan107681 .section_8 .cont_wrap {
+        position: absolute;
+        top: 26%;
+        left: 18%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .plan107681 .section_8 .cont_wrap .qna_box .itemdec {
+        padding-left: 0px;
+        padding-top: 40px;
+        text-align: center;
+      }
+
+      /* 포스트잇*/
+      .plan107681 .section_8 .label_box {
+        width: 58%;
+        margin-bottom: 150px;
+      }
+      .plan107681 .section_8 .main_title {
+        width: 70%;
+      }
+
+      .plan107681 .section_8 .stit_btm {
+        font-size: 20px;
+        line-height: 30px;
+        color: #fff;
+        text-align: center !important;
+        position: absolute;
+        bottom: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      /*  // sectioin 8 패션이라는 연결고리 ----------- end */
+    </style>
+  </head>
+  <body class="plan107681">
+    <div class="section_5" id="navPosition2">
+      <!-- 1. title -->
+      <div class="top_txt">
+        <p class="stit">Part 2</p>
+        <p class="stit">Everything Beautiful Begins with Us</p>
+      </div>
+
+      <div class="part2_swp_1" data-cycle="6000">
+        <!-- css blink 효과 -->
+
+        <div class="stack scroll_on">
+          <img
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/part2_swp_1-1.png"
+            alt="이미지 1"
+          />
+          <img
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/part2_swp_1-2.png"
+            alt="이미지 2"
+          />
+          <img
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/part2_swp_1-3.png"
+            alt="이미지 3"
+          />
+          <!-- <img
+                  src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/part2_swp_1-1.png"
+                  alt="이미지 3"
+                /> -->
+        </div>
+
+        <!-- eff cont 2 - cam -->
+        <img
+          class="top_eff_cam"
+          src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/part1_cam.png"
+          alt="cam"
+        />
+
+        <!-- 커스텀 페이지네이션 -->
+        <div class="my-paging" aria-hidden="true">
+          <span class="num" data-index="0">1</span>
+          <span class="paging-dot">·</span>
+          <span class="num" data-index="1">2</span>
+          <span class="paging-dot">·</span>
+          <span class="num" data-index="2">3</span>
+          <span class="triangle"></span>
+        </div>
+      </div>
+
+      <div class="cont_wrap">
+        <!-- 포스트잇, main-text, text -->
+        <div
+          class="slideTxt label_box plan-mask io-ready io-animation"
+          data-io="custom"
+        >
+          <img
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/part2_top_cont1.png"
+            alt="함께 시간"
+          />
+        </div>
+        <div
+          class="slideTxt main_title plan-mask io-ready io-animation"
+          data-io="custom"
+        >
+          <img
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/pc/part2_title_new.png"
+            alt="같이 걷는 용기"
+          />
+        </div>
+
+        <!-- qna -->
+        <div class="qna_box">
+          <div class="itemdec" style="padding-bottom: 40px">
+            <div class="itemtxt">
+              <p>
+                혼자였다면 용기가 나지 않았을 일들.<br />
+                하지만 늘 곁에 언니가 있었고, 동생이 있었다.<br />
+                서로의 손을 잡아주며 새로운 일에 도전했고,<br />
+                낯선 세상에도 한 걸음 나아갔다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- //qna -->
+      </div>
+    </div>
+    <!--  // section 5 ---- end  -->
+
+    <!-- sectioin 8 -->
+    <div class="section_8">
+      <!-- 1. title -->
+      <div class="top_txt">
+        <p class="stit">Part 3</p>
+        <p class="stit">Our Style, Our Story</p>
+      </div>
+
+      <div class="part3_swp_1" data-cycle="4000">
+        <!-- css blink 효과 -->
+
+        <div class="stack scroll_on">
+          <img
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/part3_swp_1-1.png"
+            alt="이미지 1"
+          />
+          <img
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/part3_swp_1-2.png"
+            alt="이미지 2"
+          />
+        </div>
+
+        <!-- eff cont 2 - cam -->
+        <img
+          class="top_eff_cam"
+          src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/part1_cam.png"
+          alt="cam"
+        />
+
+        <div class="my-paging" aria-hidden="true">
+          <span class="num" data-index="0">1</span>
+          <span class="paging-dot">·</span>
+          <span class="num" data-index="1">2</span>
+
+          <!-- <span class="triangle"></span> -->
+          <span class="triangle" aria-hidden="true">
+      
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="cont_wrap">
+        <!-- 포스트잇, main-text, text -->
+        <div
+          class="slideTxt label_box plan-mask io-ready io-animation"
+          data-io="custom"
+        >
+          <img
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/part3_top_cont1.png"
+            alt="함께 시간"
+          />
+        </div>
+        <div
+          class="slideTxt main_title plan-mask io-ready io-animation"
+          data-io="custom"
+        >
+          <img
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/pc/part3_title.png"
+            alt="연결고리"
+          />
+        </div>
+
+        <!-- qna -->
+        <div class="qna_box">
+          <div class="itemdec" style="padding-bottom: 40px">
+            <div class="itemtxt">
+              <p>
+                패션은 단순히 꾸밈이 아니라,<br />
+                서로의 생각과 감정을 표현하는 또 하나의 방식이었다.<br />
+                서로를 이해하고 닮아가는 과정 속에서<br />
+                두 자매를 이어주는 언어다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- //qna -->
+      </div>
+    </div>
+
+    <!-- //sectoin 8 -->
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('.my-paging').forEach((pagination) => {
+            const numbers = [...pagination.querySelectorAll('.num')];
+            const triangle = pagination.querySelector('.triangle');
+            const scope = pagination.closest('.part2_swp_1, .part3_swp_1, .part1_swp_1') || document;
+        
+            const imageCount = scope.querySelectorAll('.stack img').length;
+            const totalCount = imageCount || numbers.length || 1;
+            const cycleTime = Number(scope.getAttribute('data-cycle')) || (totalCount === 2 ? 4000 : 6000);
+            const stepTime = cycleTime / totalCount;
+        
+            let index = 0;
+        
+            const updateActiveState = () => {
+              numbers.forEach((num, idx) => num.classList.toggle('page-active', idx === index));
+        
+              const activeRect = numbers[index].getBoundingClientRect();
+              const paginationRect = pagination.getBoundingClientRect();
+        
+              triangle.style.left = `${activeRect.left - paginationRect.left + activeRect.width / 2}px`;
+            };
+        
+            updateActiveState();
+        
+            setInterval(() => {
+              index = (index + 1) % totalCount;
+              updateActiveState();
+            }, stepTime);
+        
+            numbers.forEach((num, idx) => {
+              num.addEventListener('click', () => {
+                index = idx;
+                updateActiveState();
+              });
+            });
+          });
+        });
+        </script>
+        
+  </body>
+</html>

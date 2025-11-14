@@ -1,0 +1,404 @@
+@charset "utf-8";
+// 모달 - 우편번호 검색 2 - '카카오' 하단 문구 삭제 버전
+body {
+}
+ul {
+  list-style: none;
+}
+.modalZipcode {
+  text-align: left;
+  width: 450px;
+  .zipcodeArea {
+    position: relative;
+    // height: 550px;
+    height: calc(100vh - 180px) !important;
+    box-sizing: border-box;
+    overflow-y: auto;
+    // border: 1px solid green;
+    // background-color: #ececec;
+
+    // form
+    .formSearch {
+      width: 100%;
+      // height: 46px;
+      border-bottom: 1px solid #363636;
+      .formSearchInner {
+        height: 46px;
+        padding: 0 65px 0 15px;
+        background-color: #fff;
+        position: relative;
+
+        input {
+          width: 100%;
+          height: 30px;
+          border: 0;
+          outline: 0;
+          background-color: transparent;
+          padding-top: 11px;
+          font-size: 18px;
+        }
+
+        .btnClear {
+          display: inline-block;
+          position: absolute;
+          right: 36px;
+          top: 0;
+          width: 30px;
+          height: 46px;
+          background-color: #fff;
+          cursor: pointer;
+
+          .btnClear_img {
+            display: block;
+            width: 14px;
+            height: 14px;
+            margin: 1px auto 0;
+
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            background: url(//t1.daumcdn.net/postcode/resource/images/dark_320.png)
+              no-repeat;
+            background-position: -43px 0;
+            text-indent: -9999px;
+          }
+        }
+        .btnSubmit {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 36px;
+          height: 46px;
+          background-color: #fff;
+          cursor: pointer;
+
+          .btnSubmit_img {
+            display: block;
+            width: 16px;
+            height: 17px;
+            margin: 1px 14px 0 5px;
+            background-position: 0 0;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            background: url(//t1.daumcdn.net/postcode/resource/images/dark_320.png)
+              no-repeat;
+            text-indent: -9999px;
+          }
+        }
+      }
+    }
+
+    // formBody
+    .formSearch_body {
+      // border: 1px solid red;
+      padding: 39px 29px;
+      background-color: #fff;
+      .tip_head {
+        display: block;
+        width: 24px;
+        height: 20px;
+        color: #000;
+      }
+      .desc_tip {
+        margin-top: 14px;
+        line-height: 22px;
+      }
+      .desc_tip2 {
+        margin-top: 8px;
+        line-height: 22px;
+      }
+      .txt_example {
+        display: block;
+        margin-top: 3px;
+        font-size: 13px;
+        line-height: 19px;
+        color: #008bd3;
+      }
+    }
+    .popup_footer {
+      // background-color: #ececec;
+    }
+
+    .formSearch_list {
+      position: absolute;
+      top: 47px;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      cursor: pointer;
+
+      li {
+        position: relative;
+        padding: 0 60px 0 9px;
+        // border: 1px solid red;
+        height: 44px;
+        line-height: 44px;
+        border-bottom: 1px solid #ececec;
+        font-size: 13px;
+        // display: flex;
+        // align-items: center;
+        a {
+          width: 100%;
+        }
+
+        .accent {
+          color: #008bd3;
+          font-weight: 400;
+        }
+        .btn_add {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 44px;
+          height: 44px;
+
+          .ico_add {
+            background: url(//t1.daumcdn.net/postcode/resource/images/dark_320.png)
+              no-repeat;
+
+            display: block;
+            width: 15px;
+            height: 15px;
+            margin: 0 auto;
+            -webkit-transform: translateY(1px);
+            transform: translateY(1px);
+            overflow: hidden;
+            background-position: -66px 0;
+            text-indent: -9999px;
+          }
+        }
+      }
+    }
+
+    .formSearch_result {
+      position: absolute;
+      top: 47px;
+      width: 100%;
+      // height: 100%;
+      background-color: #ececec;
+
+      //검색 결과 많음 - 문구
+      .desc {
+        border-bottom: 1px solid #e1e1e1;
+        letter-spacing: -1px;
+        font-size: 14px;
+        line-height: 22px;
+        color: #444;
+        background-color: #fff;
+        .desc_inner {
+          padding: 12px 13px 11px;
+
+          .accent {
+            color: #008bd3;
+            text-decoration: underline;
+            em {
+              font-style: normal;
+            }
+          }
+        }
+      }
+      //
+
+      .screen_out {
+        display: none;
+      }
+      .img_post {
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
+        background: url(//t1.daumcdn.net/postcode/resource/images/dark_320.png)
+          no-repeat;
+        text-indent: -9999px;
+      }
+      .result_inner {
+        margin: 9px 9px 0;
+        padding: 0;
+        line-height: 1.5;
+
+        // result_inner_1
+        .filter_wrap {
+          overflow: hidden;
+          position: relative;
+          padding-right: 10px;
+          padding-bottom: 1px;
+          background-color: #fff;
+          border-left: 1px solid #e0e0e0;
+          border-right: 1px solid #e0e0e0;
+          border-top: 1px solid #e0e0e0;
+          border-top-left-radius: 1px;
+          border-top-right-radius: 1px;
+
+          .filter_road,
+          .filter_region {
+            overflow: hidden;
+            float: left;
+            position: relative;
+            height: 43px;
+            margin: 0 4px 0 14px;
+            line-height: 45px;
+            padding-right: 12px;
+            display: block;
+
+            .opt_select {
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 43px;
+              border: 0;
+              opacity: 0.01;
+              font-size: 14px;
+              cursor: pointer;
+            }
+            .selected_text {
+              font-size: 14px;
+            }
+
+            .img_post {
+              position: absolute;
+              top: 34px;
+              right: 0;
+              width: 5px;
+              height: 5px;
+              background-position: -58px 0;
+            }
+          }
+        }
+        // result_inner_2
+        ul.list_post {
+          list-style: none;
+
+          li.list_post_item {
+            position: relative;
+            padding: 15px;
+            background-color: #fff;
+            border-top: 1px solid #d7d7d7;
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 0 none;
+
+            .txt_postcode {
+              font-size: 16px;
+              color: #fa4256;
+              letter-spacing: 0;
+            }
+
+            dl.list_address {
+              overflow: hidden;
+              width: 100%;
+              padding-top: 4px;
+
+              dt.tit_address {
+                display: inline-block;
+                float: left;
+                width: 34px;
+                height: 18px;
+                margin-top: 5px;
+                border: 1px solid #d4e2ef;
+                border-radius: 1px;
+                font-size: 11px;
+                line-height: 18px;
+                color: #008bd3;
+                text-align: center;
+              }
+              dd.info_address {
+                overflow: hidden;
+                margin-top: 0;
+                padding-left: 7px;
+                line-height: 27px;
+
+                .txt_address {
+                  position: relative;
+                  padding: 4px 40px 6px 0;
+                  word-break: break-all;
+
+                  .link_post {
+                    cursor: pointer;
+                    text-align: left;
+                    color: #333;
+                    padding-right: 6px;
+                    &:hover .txt_addr {
+                      text-decoration: underline;
+                    }
+                  }
+
+                  .txt_addr {
+                    font-size: 14px;
+                    line-height: 1.5;
+                  }
+                }
+              }
+            }
+          }
+        }
+        // pagination
+        .paging_post {
+          position: relative;
+          height: 48px;
+          background-color: #fafafa;
+          border: 1px solid #e0e0e0;
+          border-top: 1px solid #d7d7d7;
+
+          .inner_paging {
+            position: relative;
+            width: 114px;
+            margin: auto;
+            line-height: 47px;
+            color: #959595;
+            text-align: center;
+            display: flex;
+
+            .link_page {
+              padding: 15px;
+
+              .link-prev.on {
+                cursor: pointer;
+              }
+              .link-next.on {
+                cursor: pointer;
+              }
+            }
+
+            //prev-next 버튼
+            .img_post {
+              display: block;
+              // margin: 15px auto 0;
+              width: 10px;
+              height: 18px;
+
+              overflow: hidden;
+              font-size: 0;
+              line-height: 0;
+              background: url(//t1.daumcdn.net/postcode/resource/images/dark_320.png)
+                no-repeat;
+              text-indent: -9999px;
+            }
+            // prev 아이콘
+            .link_prev .img_post {
+              background: none;
+            }
+            .link_prev.on .img_post {
+              background: url(//t1.daumcdn.net/postcode/resource/images/dark_320.png)
+                no-repeat;
+              background-position: -18px 0;
+            }
+            // next 아이콘
+            .link_next .img_post {
+              background-position: -30px 0;
+            }
+            .link_next.off .img_post {
+              background: none;
+            }
+            .isDisabled {
+              pointer-events: none;
+              opacity: 0.4;
+            }
+          }
+        }
+      }
+    }
+  }
+  // .zipcodeArea
+}
+// end --  우편번호 검색 2

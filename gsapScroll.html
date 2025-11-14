@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gsap-video</title>
+    <style>
+      .gsap_wrapper {
+        width: 100%;
+        max-width: 1920px;
+      }
+      .style01,
+      .style02 {
+        display: flex;
+      }
+      .profL {
+        flex: 1;
+      }
+      .profR {
+        flex: 3;
+      }
+
+      .style01,
+      .style02 {
+        display: flex;
+        width: 1920px;
+        height: 1080px;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+      /* 왼쪽: 비디오 컨테이너(608×1080) 크기 고정 */
+      .style01 .profL,
+      .style02 .profL {
+        flex: 0 0 608px;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* 오른쪽: 나머지 영역(1312px)을 꽉 채움 */
+      .style01 .profR,
+      .style02 .profR {
+        flex: 1 1 auto;
+        min-width: 0;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+      /* GSAP 스크롤 뷰포트(고정 높이 1080) */
+      .style01 .scrollSlide,
+      .style02 .scrollSlide {
+        position: relative;
+        height: 100%;
+        /* scroll은 js에서 통제 */
+        overflow: hidden;
+      }
+      /* 실제 스크롤되는 컨텐츠 영역*/
+      .style01 .scrollImg,
+      .style02 .scrollImg {
+        position: absolute;
+        top: 0;
+        /*  */
+        will-change: transform;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding-right: 24px;
+      }
+      /* 각 섹션(이미지+텍스트 박스) */
+      .style01 .scrollInner img,
+      .style02 .scrollInner img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      /* 말풍선/텍스트 기본 */
+      .style01 .talk-box {
+        margin-top: 24px;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <!--104908 gsap 테스트-->
+    <div style="width: 100%; height: 300px; background-color: beige">
+      테스트박스
+    </div>
+    <h1>gsap test 1</h1>
+    <div class="gsap_wrapper">
+      <div class="style01">
+        <div class="profL">
+          <!-- <img
+            src="https://placehold.co/608x1080"
+            class="thumb"
+            alt="default"
+          /> -->
+          <video
+            class="section1_video"
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/106403/v_03.mp4"
+            muted
+            playsinline
+            autoplay
+            loop
+            width="100%"
+          ></video>
+        </div>
+        <div class="profR">
+          <div class="scrollSlide">
+            <div class="scrollImg">
+              <div class="scrollInner">
+                <img
+                  alt="플로리스트 배경"
+                  src="//img.lfmall.co.kr/file/WAS/display/Planning/106403/poster1.jpg"
+                />
+
+                <!-- 텍스트 박스 -->
+                <!-- <div class="talk-box" style="margin-top: 40px">
+                  <h1>테스트</h1>
+                  <p>Q. 반려동물 '웅이'도 너무 귀여운 가족이네요!</p>
+                  <ul class="talk-list moreTwo">
+                    <li class="talk-item">
+                      <span>남편</span>
+                      웅이는 올겨울이면 8살되는 웰시코기 수컷입니다. <br />
+                      사람으로 치면 중년의 나이지만 3살 잼민이처럼 장난기 많고
+                      에너지 넘친답니다.
+                    </li>
+                    <li class="talk-item">
+                      <span>아내</span>
+                      원래 제가 키우던 강아지였는데 남편과 처음 만났을 당시
+                      <br />
+                      그도 웰시코기를 너무 키우고 싶어 했던 터라 <br />
+                      '여자친구와 웰시코기가 한꺼번에 생겼다'며 정말 좋아했죠.
+                      <br />
+                      반려견에 대한 남편의 사랑이 각별해서 <br />
+                      가끔은 웅이 때문에 저와 결혼한 게 아닐까 싶을 정도랍니다.
+                    </li>
+                  </ul>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //gsap end-->
+    <div style="width: 100%; height: 300px; background-color: beige">
+      테스트박스
+    </div>
+    <h1>gsap test 2</h1>
+    <div class="gsap_wrapper">
+      <div class="style02">
+        <div class="profL">
+          <!-- <img
+            src="https://placehold.co/608x1080"
+            class="thumb"
+            alt="default"
+          /> -->
+          <video
+            class="section1_video"
+            src="//img.lfmall.co.kr/file/WAS/display/Planning/106403/v_04.mp4"
+            muted
+            playsinline
+            autoplay
+            loop
+            width="100%"
+          ></video>
+        </div>
+        <div class="profR">
+          <div class="scrollSlide">
+            <div class="scrollImg">
+              <div class="scrollInner">
+                <img
+                  alt="플로리스트 배경"
+                  src="//img.lfmall.co.kr/file/WAS/display/Planning/106403/poster2.jpg"
+                />
+
+                <!-- 텍스트 박스 -->
+                <!-- <div class="talk-box" style="margin-top: 40px">
+                  <h1>테스트</h1>
+                  <p>Q. 반려동물 '웅이'도 너무 귀여운 가족이네요!</p>
+                  <ul class="talk-list moreTwo">
+                    <li class="talk-item">
+                      <span>남편</span>
+                      웅이는 올겨울이면 8살되는 웰시코기 수컷입니다. <br />
+                      사람으로 치면 중년의 나이지만 3살 잼민이처럼 장난기 많고
+                      에너지 넘친답니다.
+                    </li>
+                    <li class="talk-item">
+                      <span>아내</span>
+                      원래 제가 키우던 강아지였는데 남편과 처음 만났을 당시
+                      <br />
+                      그도 웰시코기를 너무 키우고 싶어 했던 터라 <br />
+                      '여자친구와 웰시코기가 한꺼번에 생겼다'며 정말 좋아했죠.
+                      <br />
+                      반려견에 대한 남편의 사랑이 각별해서 <br />
+                      가끔은 웅이 때문에 저와 결혼한 게 아닐까 싶을 정도랍니다.
+                    </li>
+                  </ul>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //gsap 2 end-->
+    <div style="width: 100%; height: 300px; background-color: beige">
+      테스트박스
+    </div>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    const HEADER_OFFSET = 0;
+    function initPinnedScroll(sectionEl) {
+      const viewport = sectionEl.querySelector(".scrollSlide");
+      const scroller = sectionEl.querySelector(".scrollImg");
+
+      /*
+      스크롤 컨텐츠 전체 높이 - 뷰포트 높이
+      실제 이동해야 할 총거리 산출
+      */
+
+      function getScrollable() {
+        const vh = viewport.clientHeight;
+        const sh = scroller.scrollHeight;
+        return Math.max(0, sh - vh);
+      }
+      const st = ScrollTrigger.create({
+        trigger: sectionEl, //시작 영역
+        start: () => "top " + HEADER_OFFSET + "px",
+        end: () => "+=" + getScrollable(), // pin 지속길이 동적 설정, 컨텐츠 끝날때 pin 해제
+        pin: true,
+        scrub: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+
+        // onRefreshInit: () => gsap.set(scroller, { y: 0 }), //ScrollTrigger 리프레쉬 마다 초기화 설정
+        // 진행도 기반으로 수동 계산(항상 음수 방향으로 이동)
+        onUpdate: (self) =>
+          gsap.set(scroller, { y: -getScrollable() * self.progress }),
+      });
+      //동적 이미지, 비디오 들어오는 경우 안전코드
+      // scroller.querySelectorAll("img,video").forEach((el) => {
+      //   if (el.tagName === "IMG" && !el.complete) {
+      //     el.addEventListener("load", () => ScrollTrigger.refresh(), {
+      //       once: true,
+      //     });
+      //   }
+      //   if (el.tagName === "VIDEO") {
+      //     el.addEventListener("loadedmetadata", () => ScrollTrigger.refresh(), {
+      //       once: true,
+      //     });
+      //   }
+      // });
+      return st;
+    }
+    document
+      .querySelectorAll(".style01, .style02")
+      .forEach((el) => initPinnedScroll(el));
+    window.addEventListener("load", () => ScrollTrigger.refresh());
+  </script>
+
+  <!--   
+  <script>
+    //script 로딩 체크(start)--------------------------------------------------------------------------------
+    var gsapLoaded = false;
+    var gsapScrollTriggerLoaded = false;
+    const scriptGsap = document.createElement("script");
+    scriptGsap.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
+    scriptGsap.onload = function () {
+      // 스크립트가 완전히 로드된 후 실행
+      console.log("gsap.min.js Loaded...");
+      gsapLoaded = true;
+    };
+    scriptGsap.onerror = function () {
+      console.log("gsap.min.js Load Fail...");
+    };
+    document.head.appendChild(scriptGsap);
+
+    const scriptScrollTrigger = document.createElement("script");
+    scriptScrollTrigger.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js";
+    scriptScrollTrigger.onload = function () {
+      // 스크립트가 완전히 로드된 후 실행
+      console.log("ScrollTrigger.min.js Loaded...");
+      let timerId = setInterval(() => {
+        if (gsapLoaded) {
+          clearInterval(timerId);
+          gsap.registerPlugin(ScrollTrigger);
+          // setupScrollAnimations();
+          // const vw = window.innerWidth;
+          // const imgHeight = (vw * 1080) / 1920;
+
+          gsap.to(".scrollImg", {
+            // marginTop: -(imgHeight * 1.05) + "px",
+            scrollTrigger: {
+              trigger: ".style01",
+              start: "top 62px",
+              end: `+=100%`,
+              pin: true,
+              scrub: 1,
+              invalidateOnRefresh: true,
+
+              // 스크롤 영역 진입 시 실행
+              onEnter: () => {
+                ScrollTrigger.refresh();
+              },
+
+              // 역방향 스크롤로 다시 진입 시 실행
+              onEnterBack: () => {
+                ScrollTrigger.refresh();
+              },
+            },
+          });
+
+          // gsap.to(".scrollImg2", {
+          //   // marginTop: -(imgHeight * 0.85) + "px",
+          //   scrollTrigger: {
+          //     trigger: ".style01",
+          //     start: "top 62px",
+          //     end: `+=100%`,
+          //     pin: true,
+          //     scrub: 1,
+          //     invalidateOnRefresh: true,
+          //     // 스크롤 영역 진입 시 실행
+          //     onEnter: () => {
+          //       ScrollTrigger.refresh();
+          //     },
+
+          //     // 역방향 스크롤로 다시 진입 시 실행
+          //     onEnterBack: () => {
+          //       ScrollTrigger.refresh();
+          //     },
+          //   },
+          // });
+
+          window.addEventListener("resize", () => {
+            ScrollTrigger.refresh();
+          });
+
+          //
+          gsapScrollTriggerLoaded = true;
+        }
+      }, 100);
+    };
+    scriptScrollTrigger.onerror = function () {
+      console.log("ScrollTrigger.min.js Load Fail...");
+    };
+    document.head.appendChild(scriptScrollTrigger);
+
+    // let resizeTimeout;
+    // window.addEventListener("resize", () => {
+    //   clearTimeout(resizeTimeout);
+    //   resizeTimeout = setTimeout(setupScrollAnimations, 100);
+    // });
+    //script 로딩 체크(end)--------------------------------------------------------------------------------
+  </script> -->
+</html>

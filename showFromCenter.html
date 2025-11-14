@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .section_t .showFromCenter {
+        position: relative;
+        overflow: hidden;
+        /* size */
+        aspect-ratio: 960/980;
+        margin: 0 auto;
+      }
+
+      .section_t .showFromCenter img {
+        width: 0;
+        height: 100%;
+        object-fit: cover;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        transition: width 1.8s ease;
+        transition-delay: 1s;
+      }
+
+      .section_t.active .showFromCenter img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section_t">
+      <div class="showFromCenter">
+        <img
+          src="//img.lfmall.co.kr/file/WAS/display/Planning/107681/pc/profile_right.png"
+          alt="Profile Right"
+        />
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("load", () => {
+        document.querySelector(".section_t").classList.add("active");
+      });
+    </script>
+  </body>
+</html>

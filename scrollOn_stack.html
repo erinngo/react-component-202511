@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stacked Cards Fade-In (Pure CSS)</title>
+    <style>
+      body {
+        background: #111;
+        /* display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; */
+        margin: 0;
+      }
+      .stack {
+        position: relative;
+        width: 320px;
+        height: 460px;
+        perspective: 1000px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+      }
+      .card {
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        overflow: hidden;
+        transform-origin: center center;
+        opacity: 0;
+
+        /* 삭제 */
+        /* animation: showUp 2s ease-in-out forwards; */
+      }
+
+      .scroll_on.active .card {
+        animation: showUp 2s ease forwards;
+      }
+
+      /* 겹침 각도 */
+      .scroll_on.active .card:nth-child(1) {
+        transform: rotate(-6deg) translate(-8px, -6px) scale(0.98);
+        animation-delay: 0s;
+      }
+      .scroll_on.active .card:nth-child(2) {
+        transform: rotate(-3deg) translate(-4px, -4px) scale(0.985);
+        animation-delay: 0.5s;
+      }
+      .scroll_on.active .card:nth-child(3) {
+        transform: rotate(0deg) translate(0, 0) scale(0.99);
+        animation-delay: 1s;
+      }
+      .scroll_on.active .card:nth-child(4) {
+        transform: rotate(3deg) translate(4px, 4px) scale(0.995);
+        animation-delay: 1.5s;
+      }
+      .scroll_on.active .card:nth-child(5) {
+        transform: rotate(6deg) translate(8px, 6px) scale(1);
+        animation-delay: 2s;
+      }
+
+      @keyframes showUp {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        40% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .scroll_on {
+        opacity: 0;
+        transition: all 1s;
+      }
+
+      .scroll_on.active {
+        opacity: 0.5 !important;
+        transform: translate(0, 0) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top" style="height: 100vh; background-color: skyblue">
+      테스트테스트박스
+    </div>
+    <div class="top2 scroll_on" style="height: 700px; background-color: beige">
+      테스트테스트박스
+      <img
+        src="//img.lfmall.co.kr/file/WAS/display/Planning/107183/part2_family_1_497.png"
+        alt=""
+      />
+    </div>
+    <div class="stack scroll_on">
+      <div class="card">
+        <img
+          src="//img.lfmall.co.kr/file/WAS/display/Planning/107183/part2_family_1_497.png"
+          alt=""
+        />
+      </div>
+      <div class="card">
+        <img
+          src="//img.lfmall.co.kr/file/WAS/display/Planning/107183/part2_family_2_549.png"
+          alt=""
+        />
+      </div>
+      <div class="card">
+        <img
+          src="//img.lfmall.co.kr/file/WAS/display/Planning/107183/part2_family_3_549.png"
+          alt=""
+        />
+      </div>
+      <div class="card">
+        <img
+          src="//img.lfmall.co.kr/file/WAS/display/Planning/107183/part2_family_4_497.png"
+          alt=""
+        />
+      </div>
+      <div class="card">
+        <img
+          src="//img.lfmall.co.kr/file/WAS/display/Planning/107183/part2_family_5_497.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </body>
+  <!-- jquery -->
+  <script
+    src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    $(document).ready(function () {
+      const $counters = $(".scroll_on");
+
+      const exposurePercentage = 50;
+      const loop = true;
+      $(window)
+        .on("scroll", function () {
+          $counters.each(function () {
+            const $el = $(this);
+            const rect = $el[0].getBoundingClientRect();
+            const winHeight = window.innerHeight; // 현재 브라우저 창의 높이
+            const contentHeight = rect.bottom - rect.top; // 요소의 높이
+            if (
+              rect.top <=
+                winHeight - (contentHeight * exposurePercentage) / 100 &&
+              rect.bottom >= (contentHeight * exposurePercentage) / 100
+            ) {
+              $el.addClass("active");
+            }
+            if (loop && (rect.bottom <= 0 || rect.top >= window.innerHeight)) {
+              $el.removeClass("active");
+            }
+          });
+        })
+        .scroll();
+    });
+  </script>
+</html>
