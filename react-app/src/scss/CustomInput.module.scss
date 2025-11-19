@@ -1,0 +1,170 @@
+@charset "utf-8";
+// @import "/src/assets/scss/GlobalVariable.scss";
+
+@mixin spriteImg {
+  background-image: url(//img.lfmall.co.kr/file/WAS/apps/2019/mfront/common/sc2_bg.png?v=20240213);
+  background-repeat: no-repeat;
+  background-size: 400px auto;
+}
+
+/* input - checkbox */
+.lfInputCheck {
+  position: relative;
+  min-height: 22px;
+  .input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    opacity: 0;
+  }
+  .input + label {
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    padding-top: 2px;
+    &:before {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 22px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      box-sizing: border-box;
+      @include spriteImg;
+      background-position: -20px 0;
+    }
+  }
+  .input:checked + label {
+    &:before {
+      background-position: -42px 0;
+    }
+  }
+  .input:disabled + label {
+    &:before {
+      background-position: -42px 0;
+      background-position: -120px -115px;
+    }
+  }
+  &.product {
+    align-items: flex-start;
+    .brand {
+      font-size: 11px;
+      font-weight: bold;
+      line-height: 13px;
+    }
+    .name {
+      margin-top: 2px;
+      font-size: 14px;
+      color: #757575;
+      a {
+        font-size: 14px;
+        color: #757575;
+        // @include ellipsis(1);
+      }
+    }
+  }
+  &.shape {
+    &Round {
+      min-height: 20px;
+      .input[type="radio"] + label {
+        padding-top: 1px;
+        &:before {
+          width: 20px;
+          height: 20px;
+          background: url(//img.lfmall.co.kr/file/WAS/apps/2014/jscss/mobilefront/check-circle-small-off.png)
+            0 0 no-repeat;
+          background-size: 20px auto;
+          border: 0;
+        }
+        &:after {
+          display: none;
+        }
+      }
+      .input[type="radio"]:checked + label {
+        &:before {
+          background: url(//img.lfmall.co.kr/file/WAS/apps/2014/jscss/mobilefront/check-circle-small-on.png)
+            0 0 no-repeat;
+          background-size: 20px auto;
+        }
+      }
+
+      .input[type="checkbox"] + label {
+        padding-top: 1px;
+        &:before {
+          width: 22px;
+          height: 22px;
+          background: url(//img.lfmall.co.kr/file/WAS/apps/2014/jscss/mobilefront/check-small-off.png)
+            0 0 no-repeat;
+          background-size: 22px auto;
+          border: 0;
+        }
+        &:after {
+          display: none;
+        }
+      }
+      .input[type="checkbox"]:checked + label {
+        &:before {
+          background: url(//img.lfmall.co.kr/file/WAS/apps/2014/jscss/mobilefront/check-on.png)
+            0 0 no-repeat;
+          background-size: 22px auto;
+        }
+      }
+    }
+  }
+}
+
+/* input - radio */
+.lfInputRadio {
+  position: relative;
+  min-height: 22px;
+  .input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    opacity: 0;
+  }
+  .input + label {
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    padding-top: 2px;
+    font-size: 13px;
+    &:before {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      @include spriteImg;
+      background-position: 0 -170px;
+    }
+  }
+  .input:checked + label {
+    &:before {
+      background-position: -25px -170px;
+    }
+  }
+  .input:disabled + label {
+    color: #bdbdbd;
+    &:before {
+      background-position: -147px -115px;
+    }
+  }
+  &.fill {
+    &Red {
+      .input:checked + label {
+        &:before {
+          border-color: red;
+          background: red;
+        }
+      }
+    }
+  }
+}

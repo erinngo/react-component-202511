@@ -1,6 +1,7 @@
 import { useState } from "react";
 // import { LfFullLayerModal } from "components/lf-modal2/LfFullLayerModal";
 import styles from "../scss/OrderZipcodeModal.module.scss";
+import Title from "./common/Title";
 
 export default function OrderZipcodeModal() {
   // 우편번호찾기 모달 2
@@ -27,7 +28,7 @@ export default function OrderZipcodeModal() {
 
   return (
     <>
-      <h3> [ 우편번호 검색 컴포넌트 ] </h3>
+      <Title title="우편번호 검색 컴포넌트" />
       <div className={styles.modalZipcode}>
         <div className={styles.zipcodeArea}>
           {/* searchForm */}

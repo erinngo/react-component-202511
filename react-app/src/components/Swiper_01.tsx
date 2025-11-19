@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "../scss/Swiper_01.module.scss";
 import "swiper/css";
+import Title from "./common/Title";
 
 interface Props {
   tags?: string[];
@@ -11,7 +12,7 @@ function Swiper_01({ tags = mock_reviewAI }: Props) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   return (
     <>
-      <h5> 동적 스와이퍼 한줄</h5>
+      <Title title="동적 스와이퍼 한줄" />
       <section className={styles.wrap}>
         {tags?.length ? (
           <Swiper
